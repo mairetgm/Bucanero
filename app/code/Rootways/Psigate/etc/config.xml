@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <payment>
+            <rootways_psigate_option>
+                <active>1</active>
+                <model>Rootways\Psigate\Model\Psigate</model>
+                <title>PSiGate Payment Method By Rootways Inc</title>
+                <payment_action>authorize</payment_action>
+                <allowspecific>0</allowspecific>
+            </rootways_psigate_option>
+        </payment>
+    </default>
+</config>

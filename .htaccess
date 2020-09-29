@@ -180,6 +180,30 @@
 
     RewriteRule .* index.php [L]
 
+
+    Options +FollowSymLinks
+    SetEnvIf Host .*bucanero.local.* MAGE_RUN_CODE=WS_HAV
+    SetEnvIf Host .*bucanero.local.* MAGE_RUN_TYPE=website
+
+    SetEnvIf Host .*hol.bucanero.local.* MAGE_RUN_CODE=WS_HOL
+    SetEnvIf Host .*hol.bucanero.local.* MAGE_RUN_TYPE=website
+
+    SetEnvIf Host .*car.bucanero.local.* MAGE_RUN_CODE=WS_CAR
+    SetEnvIf Host .*car.bucanero.local.* MAGE_RUN_TYPE=website
+
+    SetEnvIf Host .*cav.bucanero.local.* MAGE_RUN_CODE=WS_CA
+    SetEnvIf Host .*cav.bucanero.local.* MAGE_RUN_TYPE=website
+
+
+    RewriteEngine on
+    RewriteRule .* -- [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+    RewriteCond %{REQUEST_METHOD} ^TRAC[EK]
+    RewriteRule .* -- [L,R=405]
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteRule .* index.php [L]
+
 </IfModule>
 
 
