@@ -1,0 +1,11 @@
+<div class="row brand-info">
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 pl-0 pr-0">
+        <?php echo $block->getChildHtml('brand.image', true); ?>
+    </div>
+    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+        <?php echo $block->getChildHtml('brand.description', true); ?>
+    </div>
+</div>
+<div class="brand-product-list">
+    <?php echo $this->getProductListHtml(); ?>
+</div>
