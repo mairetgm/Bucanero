@@ -4,7 +4,7 @@
 @import url('//fonts.googleapis.com/css?family=Futura+Std:300,300italic,400,400italic,500,500italic,600,600italic,700,700italic,900,900italic');
 
 body{
-    font-family: "Futura Std", arial, tahoma;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
     font-weight: normal;
 }
 #mainMenu{
@@ -13,14 +13,62 @@ body{
     color: #333;
 }
 h1,h2,h3,h4,h5,h6{
-    font-family: "Futura Std";
-}
-h6{
-    font-family: "Futura Std";
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
     color:#333!important;
 }
-.price, .price-box .price{
+.brand-brand-view .page-title-wrapper{
+    display: none;
+}
+.brand-description{
+    text-align: center;
+    padding: 40px;
+    padding: 40px!important;
+}
+.brand-description p{
+    font-size: 18px;
     font-family: "Futura Std";
+}
+.brand-description h5{
+    font-size: 40px;
+    font-family: "Futura Std";
+    text-transform: uppercase;
+    margin-bottom: 20px;
+}
+.pl-0 {
+    padding-left: 0;
+}
+.pr-0 {
+    padding-right: 0;
+}
+.brand-info{
+    border: 1px solid #ebe9e9;
+}
+.brand-info .img-responsive{
+    width: 100%;
+}
+@media (max-width: 768px) {
+    .brand-description{
+        padding: 5px!important;
+        padding-top: 15px !important;
+    }
+    .brand-description h5{
+        font-size: 20px;
+    }
+    .brand-description p {
+        font-size: 13px;
+    }
+    .middle-header-content{
+        height: 75px!important;
+    }
+    #placeholder-header{
+        height: 100px!important;
+    }
+    .breadcrumbs{
+        margin-top: 20px;
+    }
+}
+.price, .price-box .price{
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif;
 }
 .products-grid .product-item-info .product-item-details .product-item-name a {
     color: #222;
@@ -136,10 +184,29 @@ a:hover,a:focus{color: #000 !important;}.product-tab .menu-product-tabs li:hover
     font-size: 14px;
     line-height: 1.5;
 }
+/*Search*/
+.header .search-form .form-search .form.minisearch{
+    margin-top: 45px;
+}
+
+.header .search-form .form-search .form.minisearch .input-text{
+    width: 400px;
+    border: 1px solid #333;
+    right: 150px;
+    left: auto;
+}
+.header .search-close{
+    right: 140px;
+    top: 50px;
+    z-index: 9999;
+}
+.search-open .header .search-form .form-search{
+    opacity: 0.5;
+}
 footer .top-footer h1,footer .top-footer h2,footer .top-footer h3,footer .top-footer h4,footer .top-footer h5,footer .top-footer h6,footer .top-footer .h1,footer .top-footer .h2,footer .top-footer .h3,footer .top-footer .h4,footer .top-footer .h5,footer .top-footer .h6{color: #1a3f87 !important;}
 footer .top-footer a{color: #fff !important;}footer .top-footer a:hover{color: #1a3f87 !important;}
 footer .middle-footer h1,footer .middle-footer h2,footer .middle-footer h3,footer .middle-footer h4,footer .middle-footer h5,footer .middle-footer h6,footer .middle-footer .h1,footer .middle-footer .h2,footer .middle-footer .h3,footer .middle-footer .h4,footer .middle-footer .h5,footer .middle-footer .h6{color: #1a3f87 !important;}
-footer .middle-footer a{color: #878787; !important;}footer .middle-footer a:hover{color: #1a3f87 !important;}.middle-header-content{height: 140px;}
+footer .middle-footer a{color: #878787; !important;}footer .middle-footer a:hover{color: #1a3f87 !important;}
 .header .logo-left-header .logo{display: block!important;}
 .header{position: relative; z-index: 99;}.big-item .products-grid .product-item-info.metro_template .product-top a.photo { padding-top: calc(133.3333% - 10px) !important; }
 .products-grid .big-item .product-item-info.metro_template .product-top a.photo { padding-bottom: calc(133.3333% - 10px) !important; }@media (min-width: 1200px){.cms-index-index .header.header8 .vertical-menu-widget .vertical-menu{padding-bottom: 60px;}}.header.header9 .vertical-menu-widget .vertical-menu {padding-bottom: 31px;}
