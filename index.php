@@ -17,6 +17,7 @@
  * Copyright © Magento, Inc. All rights reserved.
  * See COPYING.txt for license details.
  */
+/****Test*/
 require __DIR__ . '/app/bootstrap.php';
 $params = $_SERVER;
 $domainName = $_SERVER['SERVER_NAME'];
