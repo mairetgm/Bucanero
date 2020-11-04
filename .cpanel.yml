@@ -1,0 +1,5 @@
+---
+deployment:
+      tasks:
+        - export DEPLOYPATH=/home/bucanero/public_html/staging.micerveza.com
+        - /bin/cp -r * $DEPLOYPATH     
