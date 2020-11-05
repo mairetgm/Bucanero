@@ -2,4 +2,4 @@
 deployment:
       tasks:
         - export DEPLOYPATH=/home/bucanero/public_html/staging.micerveza.com
-        - cp index.php $DEPLOYPATH
+        - cp -r * $DEPLOYPATH       
