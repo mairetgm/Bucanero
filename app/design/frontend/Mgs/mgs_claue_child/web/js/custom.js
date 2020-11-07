@@ -148,7 +148,7 @@ require([
 			$('#submit_button').click(function() {
 				var enteredDate = $('#popup_year').val();
 				var years = new Date(new Date() - new Date(enteredDate)).getFullYear() - 1970;
-				if (years < 21){
+				if ((years < 21) || enteredDate == ''){
 					$( "#message_age" ).attr( "style", "display: block;" );
 				}
 				else {
