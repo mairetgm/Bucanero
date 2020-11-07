@@ -220,6 +220,20 @@ input[name=popup_year]{
 .radio input[id="dont_show"]{
     margin-top: 8px;
 }
+.modal_newsletter_popup.modal-popup .pop-sletter-title::after{
+    position: relative;
+}
+#message_age{
+    font-size: 20px;
+    font-family: 'Open Sans','Helvetica Neue',Helvetica,Arial,sans-serif!important;
+    text-transform: uppercase;
+    color: #000;
+    margin: 20px;
+    background-color: rgb(255, 255, 255, 0.3);
+}
+.newsletter_popup .action-close{
+    display: none;
+}
 .btn.btn-promo-banner{color: #fff !important; background-color: rgb(76,76,76);opacity:0.6;!important; border-radius: 25px!important;}
 .btn.btn-promo-banner:hover, .btn.btn-promo-banner:focus, .btn.btn-promo-banner:active{color: #1a3f87 !important;background-color: rgb(218,194,91);opacity:1; !important;border-color: #dac25b !important;}
 .btn-primary, .tocart.btn-cart{color: #ffffff !important;background-color: #1a3f87 !important;border-color: #1a3f87 !important;}
