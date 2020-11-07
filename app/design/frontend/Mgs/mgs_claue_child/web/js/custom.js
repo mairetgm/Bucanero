@@ -146,13 +146,15 @@ require([
 
 			//Inicial Popup Age
 			$('#submit_button').click(function() {
-				var date = $('#popup_year').val();
-				alert(date);
-				//day = date.getDate();
-				//month = date.getMonth() + 1;
-				//year = date.getFullYear();
-				//console.log([day, month, year].join('/'));
-				$( "#message_age" ).attr( "style", "display: block;" )
+				var enteredDate = $('#popup_year').val();
+				var years = new Date(new Date() - new Date(enteredDate)).getFullYear() - 1970;
+				if (years < 21){
+					$( "#message_age" ).attr( "style", "display: block;" );
+				}
+				else {
+					$( "em.pe-7s-close" ).click();
+				}
+
 			});
 
 
