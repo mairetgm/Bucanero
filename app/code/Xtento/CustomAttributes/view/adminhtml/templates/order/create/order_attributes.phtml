@@ -1,0 +1,16 @@
+<?php $fields = $block->fields() ?>
+
+<?php if (!empty($fields)): ?>
+    <div class="admin__page-section-title"  <?= /* @escapeNotVerified */ $block->getHeaderCssClass() ?>" >
+    <span class="title"><?= __('Additional Information')?></span>
+    <div class="actions"></div>
+    </div>
+    <div id="custom_order_fields" class="admin__page-section-content">
+        <?php echo $block->getForm()->getHtml() ?>
+    </div>
+    <script>
+        require(["prototype", "Magento_Sales/order/create/form"], function () {
+            order.accountFieldsBind($('custom_order_fields'));
+        });
+    </script>
+<?php endif; ?>

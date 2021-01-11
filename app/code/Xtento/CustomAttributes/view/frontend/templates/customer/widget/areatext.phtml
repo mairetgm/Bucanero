@@ -1,0 +1,35 @@
+<?php
+// @codingStandardsIgnoreFile
+use Xtento\CustomAttributes\Api\Data\FieldsInterface;
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+
+$field = $block->getField();
+$attribute = $field->getData(Data::ATTRIBUTE_DATA);
+?>
+<?php if ($field->getFrontendInput() === InputType::TEXT_AREA): ?>
+    <?php
+    $attributeCode = $attribute->getData(FieldsInterface::ATTRIBUTE_CODE);
+    $attributeLabel = $attribute->getStoreLabel();
+    $value = $block->customAttributeValue($attributeCode);
+    $isDisabled = $block->getIsDisabledOnFrontend();
+    ?>
+    <div class="field <?php echo $attributeCode; ?><?php if ($field->getFieldRequired()) echo ' required'; ?>">
+        <label class="label" for="<?= $block->escapeHtmlAttr($attributeCode) ?>">
+            <span>
+                <?= $block->escapeHtml(__($attributeLabel)) ?>
+            </span>
+        </label>
+        <div class="control">
+            <textarea
+                <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                   id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                   name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                   title="<?= $block->escapeHtmlAttr(__($attributeLabel)) ?>"
+                   class="input-text <?=
+                   $block->escapeHtmlAttr($this->helper('Magento\Customer\Helper\Address')
+                       ->getAttributeValidationClass($attributeCode)) ?>"
+                <?php if ($field->getFieldRequired()) echo ' data-validate="{required:true}"' ?>><?= $block->escapeHtmlAttr($value) ?></textarea>
+        </div>
+    </div>
+<?php endif ?>

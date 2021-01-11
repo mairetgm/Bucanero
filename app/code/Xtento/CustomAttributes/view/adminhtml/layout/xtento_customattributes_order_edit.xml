@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceContainer name="content">
+            <block class="Xtento\CustomAttributes\Block\Adminhtml\Sales\Order\Edit" name="order_edit">
+                <block class="Xtento\CustomAttributes\Block\Adminhtml\Sales\Order\Create\OrderAttributes" name="form"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-11T23:10:04+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/adminhtml/layout/xtento_customattributes_order_edit.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

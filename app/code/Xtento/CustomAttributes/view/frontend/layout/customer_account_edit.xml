@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer_edit" remove="true" />
+        <referenceContainer name="content">
+            <block class="Xtento\CustomAttributes\Block\Customer\Form\Edit" name="customer_ca_edit" template="Xtento_CustomAttributes::customer/form/edit.phtml" cacheable="false">
+                <container name="form.additional.info.ca" as="form_additional_info_ca"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/frontend/layout/customer_account_edit.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

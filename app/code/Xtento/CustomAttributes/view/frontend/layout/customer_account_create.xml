@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <referenceBlock name="customer_form_register" remove="true" />
+        <referenceContainer name="content">
+            <container>
+                <block class="Xtento\CustomAttributes\Block\Customer\Form\Register" name="customer_ca_form_register" template="Xtento_CustomAttributes::customer/form/register.phtml">
+                    <container name="form.additional.info" as="form_additional_info"/>
+                    <container name="customer.form.register.fields.before" as="form_fields_before" label="Form Fields Before" htmlTag="div" htmlClass="customer-form-before"/>
+                </block>
+            </container>
+        </referenceContainer>
+    </body>
+</page>
+
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/frontend/layout/customer_account_create.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

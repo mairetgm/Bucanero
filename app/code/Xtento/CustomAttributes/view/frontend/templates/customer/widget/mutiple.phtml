@@ -1,0 +1,101 @@
+<?php
+// @codingStandardsIgnoreFile
+use Xtento\CustomAttributes\Api\Data\FieldsInterface;
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+
+/** @var \Xtento\CustomAttributes\Model\Fields $field */
+$field = $block->getField();
+$attribute = $field->getData(Data::ATTRIBUTE_DATA);
+?>
+<?php if ($field->getFrontendInput() === InputType::MULTI_SELECT): ?>
+    <?php
+    $attributeCode = $attribute->getData(FieldsInterface::ATTRIBUTE_CODE);
+    $attributeLabel = $attribute->getStoreLabel();
+    $values = $block->customAttributeValues($attributeCode);
+    $value = $block->customAttributeValue($attributeCode);
+    $options = $block->getOptions();
+    $multiplecheckboxselected = $field->getData(FieldsInterface::FRONTEND_OPTION);
+    $isDisabled = $block->getIsDisabledOnFrontend();
+    ?>
+
+    <?php if (!empty($options)):?>
+        <div class="field <?php echo $attributeCode; ?><?php if ($field->getFieldRequired()) echo ' required'; ?>">
+            <label class="label" for="<?= $block->escapeHtmlAttr($attributeCode) ?>">
+            <span>
+                <?= $block->escapeHtml(__($attributeLabel)) ?>
+            </span>
+            </label>
+            <div class="control">
+                <?php if ($multiplecheckboxselected == 1): ?>
+                    <?php foreach ($options as $option):?>
+                        <input type="checkbox" class="multiplecheckbox <?= $block->escapeHtmlAttr($attributeCode) ?>"
+                            <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                               name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                               id="<?= $block->escapeHtmlAttr($attributeCode) ?>_multiplecheckbox<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+                               value="<?= $block->escapeHtmlAttr($option->getValue()) ?>">
+                    <?php endforeach;?>
+                    <input type="hidden"
+                           id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                           name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                           value='<?php echo $value?>'/>
+
+                <?php else: ?>
+
+                    <select id="<?= $block->escapeHtmlAttr($attributeCode) ?>_pseudo"
+                            name="<?= $block->escapeHtmlAttr($attributeCode) ?>_pseudo"
+                        <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                            multiple="multiple"
+                            size="<?php echo count($options)?>"
+                        <?php if ($field->getFieldRequired()):?>
+                            class="validate-select" data-validate="{required:true}"
+                        <?php endif; ?>>
+
+                        <?php foreach ($options as $option):?>
+                            <option value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+                                <?php if (in_array($option->getValue(), $values)) echo ' selected="selected"' ?>>
+                                <?= $block->escapeHtml(__($option->getLabel())) ?></option>
+                        <?php endforeach;?>
+                        <?php if ($field->getFieldRequired()) echo ' data-validate="{required:true}"' ?>
+                    </select>
+                    <input type="hidden" id="<?= $block->escapeHtmlAttr($attributeCode) ?>"  name="<?= $block->escapeHtmlAttr($attributeCode) ?>" value="<?php echo $value?>" >
+                    <script>
+                        require(["jquery"],
+                            function ($) {
+                                var pseudoInputId = <?= $block->escapeHtmlAttr($attributeCode) ?>_pseudo,
+                                    inputId = <?= $block->escapeHtmlAttr($attributeCode) ?>;
+
+                                $(pseudoInputId).on('change', function () {
+                                    $(inputId).val($(this).val().join(','));
+                                    console.log($(inputId).val())
+                                })
+                            });
+                    </script>
+                <?php endif; ?>
+                <script>
+                    require(['jquery'],
+                        function ($) {
+                            var hiddenInput = $('#<?= $block->escapeHtmlAttr($attributeCode) ?>');
+                            var multiplecheckboxInput = $('.multiplecheckbox.<?= $block->escapeHtmlAttr($attributeCode) ?>');
+                            var hiddenInputValue= hiddenInput.val();
+
+                            hiddenInputValue=[];
+
+                            multiplecheckboxInput.change(function () {
+                                var multiplecheckbox = $(this);
+                                var valuemultiplecheckbox = multiplecheckbox.val();
+                                if (multiplecheckbox.is(':checked')) {
+                                    hiddenInputValue.push(valuemultiplecheckbox);
+
+                                }
+
+                                var string = hiddenInputValue.toString();
+                                hiddenInput.val(string)
+                            })
+                        }
+                    );
+                </script>
+            </div>
+        </div>
+    <?php endif; ?>
+<?php endif ?>

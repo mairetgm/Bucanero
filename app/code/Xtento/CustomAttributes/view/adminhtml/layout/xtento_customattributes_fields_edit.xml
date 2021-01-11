@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+
+    <body>
+        <referenceContainer name="content">
+            <block class="Magento\Backend\Block\Template" name="attribute_edit_js" template="Xtento_CustomAttributes::js/init.phtml"/>
+            <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit" name="xtea_edit"/>
+        </referenceContainer>
+        <referenceContainer name="left">
+            <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tabs" name="xtea_edit_tabs">
+                <container label="General" name="general">
+                    <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\General" name="xtea_edit_tab_general"/>
+                    <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\Options" as="xtea_edit_tab_options"/>
+                    <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\Advanced" name="xtea_edit_tab_advanced"/>
+                </container>
+
+                <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\Labels"  name="xtea_edit_tab_labels"/>
+                <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\Store" name="xtea_edit_tab_store"/>
+                <block class="Xtento\CustomAttributes\Block\Adminhtml\Xtea\Edit\Tab\FrontEnd" name="xtea_edit_tab_frontend"/>
+            </block>
+        </referenceContainer>
+    </body>
+</page>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/adminhtml/layout/xtento_customattributes_fields_edit.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

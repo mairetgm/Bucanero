@@ -1,0 +1,35 @@
+<?xml version="1.0"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/guest-carts/:cartId/set-fields" method="PUT">
+        <service class="Xtento\CustomAttributes\Api\GuestCustomerOrderFieldsManagementInterface" method="saveFields"/>
+        <resources>
+            <resource ref="anonymous" />
+        </resources>
+    </route>
+
+    <route url="/V1/carts/mine/set-fields" method="PUT">
+        <service class="Xtento\CustomAttributes\Api\CustomerOrderFieldsManagementInterface" method="saveFields"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="cartId" force="true">%cart_id%</parameter>
+        </data>
+    </route>
+
+    <route url="/V1/orders/:id/xtento-customattributes" method="POST">
+        <service class="Xtento\CustomAttributes\Api\CustomerOrderFieldsManagementInterface" method="updateFields"/>
+        <resources>
+            <resource ref="Magento_Sales::actions_view" />
+        </resources>
+    </route>
+</routes>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2020-02-21T11:41:53+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/webapi.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

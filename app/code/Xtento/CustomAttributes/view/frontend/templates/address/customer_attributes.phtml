@@ -1,0 +1,46 @@
+<?php
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+use Xtento\CustomAttributes\Model\CustomAttributes;
+// @codingStandardsIgnoreFile
+
+/** @var \Xtento\CustomAttributes\Block\Address\CustomerAttributes $block */
+?>
+<?php $customerAttributes = $block->fields()?>
+
+<?php if (!empty($customerAttributes) && isset($customerAttributes[CustomAttributes::ADDRESS_ENTITY]) ) :?>
+    <h3><?php echo __('Additional Attributes') ?></h3>
+
+    <div style=" width: 100%;" class="admin__page-section-item order-account-information">
+        <div class="admin__page-section-item-content">
+            <table class="admin__table-secondary order-account-information-table">
+                <?php /** @var \Xtento\CustomAttributes\Model\Fields $field */ ?>
+                <?php foreach ($customerAttributes[CustomAttributes::ADDRESS_ENTITY] as $fieldCode => $field): ?>
+                    <?php /** @var \Magento\Eav\Model\Attribute $attribute */ ?>
+                    <?php $attribute = $field->getData(Data::ATTRIBUTE_DATA);?>
+                    <?php $value = $block->addValues($attribute)?>
+
+                    <?php if ($value): ?>
+                        <?php if($field->getFrontendInput() === InputType::FILE): ?>
+                            <?php $value = $block->getMediaDownloadLink(). $block->addValues($attribute)?>
+                        <?php endif;?>
+                        <tr>
+                            <th style="padding-left: 0; float: left; width: 100%">
+                                <?= $block->escapeHtml(__($attribute->getStoreLabel())) ?>
+                            </th>
+                            <td style="padding-left: 0; float: left; padding-top: 0;">
+                                <?php if($field->getFrontendInput() === InputType::FILE): ?>
+                                    <a href="<?= $block->escapeHtml($value) ?>">
+                                        <?php echo __('Download File') ?>
+                                    </a>
+                                <?php else:?>
+                                    <?= $block->escapeHtml($value) ?>
+                                <?php endif;?>
+                            </td>
+                        </tr>
+                    <?php endif;?>
+                <?php endforeach?>
+            </table>
+        </div>
+    </div>
+<?php endif ?>

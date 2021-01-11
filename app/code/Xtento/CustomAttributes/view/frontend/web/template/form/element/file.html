@@ -1,0 +1,11 @@
+<input class="input-file" type="file" data-bind="
+hasFocus: focused,
+attr: {
+    name: inputName,
+    placeholder: placeholder,
+    'aria-describedby': getDescriptionId(),
+    'aria-required': required,
+    'aria-invalid': error() ? true : 'false',
+    id: uid,
+    disabled: disabled
+}" />

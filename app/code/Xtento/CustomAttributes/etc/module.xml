@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Xtento_CustomAttributes" setup_version="1.7.2">
+        <sequence>
+            <module name="Magento_Customer"/>
+            <module name="Magento_Eav"/>
+            <module name="Magento_Checkout" />
+            <module name="Xtento_XtCore"/>
+        </sequence>
+    </module>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2020-11-30T10:02:07+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/module.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

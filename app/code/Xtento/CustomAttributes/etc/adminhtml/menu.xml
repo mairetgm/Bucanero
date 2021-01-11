@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Xtento_CustomAttributes::configuration" title="Custom Attributes" module="Xtento_CustomAttributes" sortOrder="115" resource="Xtento_CustomAttributes::configuration" action="adminhtml/system_config/edit/section/customattributes" parent="Xtento_XtCore::extensions"/>
+        <add id="Xtento_CustomAttributes::menu" title="Custom Attributes" module="Xtento_CustomAttributes" sortOrder="400" parent="Magento_Backend::stores" resource="Xtento_CustomAttributes::menu"/>
+        <add id="Xtento_CustomAttributes::customattributes" title="Manage Order/Customer Attributes" module="Xtento_CustomAttributes" sortOrder="10"
+             parent="Xtento_CustomAttributes::menu" action="xtento_customattributes/fields/index"
+             resource="Xtento_CustomAttributes::customattributes"/>
+    </menu>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/adminhtml/menu.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

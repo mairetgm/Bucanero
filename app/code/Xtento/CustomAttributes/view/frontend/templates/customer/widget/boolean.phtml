@@ -1,0 +1,76 @@
+<?php
+// @codingStandardsIgnoreFile
+use Xtento\CustomAttributes\Api\Data\FieldsInterface;
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+/** @var \Xtento\CustomAttributes\Block\Customer\Widget\Boolean $field */
+$field = $block->getField();
+$attribute = $field->getData(Data::ATTRIBUTE_DATA);
+?>
+<?php if ($field->getFrontendInput() === InputType::BOOLEAN): ?>
+    <?php
+    $attributeCode = $attribute->getData(FieldsInterface::ATTRIBUTE_CODE);
+    $checkboxselected = $field->getData(FieldsInterface::FRONTEND_OPTION);
+    $attributeLabel = $attribute->getStoreLabel();
+    $value = $block->customAttributeValue($attributeCode);
+    $isDisabled = $block->getIsDisabledOnFrontend();
+    ?>
+    <div class="field <?php echo $attributeCode; ?><?php if ($field->getFieldRequired()) echo ' required'; ?>">
+        <label class="label" for="<?= $block->escapeHtmlAttr($attributeCode) ?>">
+            <span>
+                <?= $block->escapeHtml(__($attributeLabel)) ?>
+            </span>
+        </label>
+        <div class="control">
+            <?php if($checkboxselected == 1):?>
+            <input type="hidden"
+                   id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                   name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                <?php if ($value == 0): ?> value="2" <?php endif ?>
+                <?php if ($value == 1): ?> value="1" <?php endif ?>
+            >
+
+            <input type="checkbox" id="<?= $block->escapeHtmlAttr($attributeCode) ?>_checkbox"
+                <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                   name="<?= $block->escapeHtmlAttr($attributeCode) ?>_checkbox"
+                   class="checkbox"
+                   value="<?= $block->escapeHtmlAttr($value) ?>"
+                <?php if ($value == 1): ?>
+                    checked="checked"
+                <?php endif ?>>
+           <?php else: ?>
+            <select id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                    name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                    value="<?= $block->escapeHtmlAttr($value) ?>"
+                    title="<?= $block->escapeHtmlAttr(__($attributeLabel)) ?>"
+                <?php if ($field->getFieldRequired()): ?>
+                    class="validate-select" data-validate="{required:true}"
+                <?php endif; ?>>
+                <option value="1" <?php if (1 == $value) echo ' selected="selected"' ?>><?php echo __('Yes') ?></option>
+                <option value="2" <?php if (0 == $value || $value === null) echo ' selected="selected"' ?>><?php echo __('No') ?></option>
+                <?php if ($field->getFieldRequired()) echo ' data-validate="{required:true}"' ?>
+            </select>
+            <?php endif; ?>
+        </div>
+        <script>
+            require(
+                [
+                    'jquery',
+                ],
+                function ($) {
+                    var hiddenInput =  $('#<?= $block->escapeHtmlAttr($attributeCode) ?>');
+                    var checkboxInput =  $('#<?= $block->escapeHtmlAttr($attributeCode) ?>_checkbox');
+                   checkboxInput.change(function () {
+                        var checkbox = $(this);
+                        hiddenInput.val(2);
+                        if(checkbox.is(':checked')){
+                            hiddenInput.val(1);
+                        }
+                    })
+                }
+            );
+        </script>
+
+    </div>
+<?php endif ?>

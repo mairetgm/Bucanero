@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="2columns-left" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="customer_account"/>
+    <body>
+        <referenceBlock name="customer_account_dashboard_info">
+            <action  method="setTemplate">
+                <argument name="template" xsi:type="string">Xtento_CustomAttributes::customer/dashboard/info.phtml</argument>
+            </action>
+            <block class="Xtento\CustomAttributes\Block\Customer\Dashboard\CustomerAttributes" name="customer_attributes" template="Xtento_CustomAttributes::customer/dashboard/customer_attributes.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
+
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/frontend/layout/customer_account_index.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

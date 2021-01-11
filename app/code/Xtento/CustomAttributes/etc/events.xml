@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_model_service_quote_submit_before">
+        <observer instance="Xtento\CustomAttributes\Observer\Sales\QuoteSubmitBefore"
+                  name="Xtento_CustomAttributes_Observer_Sales_QuoteSubmitBefore"/>
+    </event>
+
+    <event name="core_copy_fieldset_order_address_to_customer">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\CopyAddressToCustomer"
+                  name="Xtento_CustomAttributes_Observer_Sales_CopyAddressToCustomer"/>
+    </event>
+
+    <event name="core_copy_fieldset_order_address_to_customer_address">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\CopyAddressToCustomerAddress"
+                  name="Xtento_CustomAttributes_Observer_Sales_CopyAddressToCustomerAddress"/>
+    </event>
+
+    <event name="get_data_fieldset_sales_convert_quote_address_to_customer_address">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\CopyAddressToRegisteredCustomer"
+                  name="Xtento_CustomAttributes_Observer_Sales_CopyAddressToRegisteredCustomer"/>
+    </event>
+
+    <!--<event name="get_data_fieldset_sales_convert_quote_address_to_order">-->
+    <!--<observer instance="Xtento\CustomAttributes\Observer\Framework\CopyAddressToRegisteredCustomer"-->
+    <!--name="Xtento_CustomAttributes_Observer_Sales_CopyAddressToRegisteredSame"/>-->
+    <!--</event>-->
+
+    <event name="get_data_fieldset_sales_convert_quote_address_to_order_address">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\CopyAddressToRegisteredCustomer"
+                  name="Xtento_CustomAttributes_Observer_Sales_CopyAddressToRegisteredSameAddress"/>
+    </event>
+
+    <!--get_data_fieldset_sales_convert_quote_address_to_order_address-->
+    <!--this should fix my issue-->
+    <!--get_data_fieldset_sales_convert_quote_address_to_order-->
+
+    <!--admin events-->
+
+    <event name="get_data_fieldset_admin_sales_convert_quote_address_to_customer_address">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\Adminhtml\CopyAddressToRegisteredCustomer"
+                  name="Xtento_CustomAttributes_Adminhtml_Observer_Sales_CopyAddressToRegisteredCustomer"/>
+    </event>
+
+    <event name="core_copy_fieldset_sales_copy_order_billing_address_to_order">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\Adminhtml\CopyBillingAddressToOrder"
+                  name="Xtento_CustomAttributes_Adminhtml_Observer_Sales_CopyBillingAddressToOrderr"/>
+    </event>
+
+    <event name="core_copy_fieldset_sales_copy_order_shipping_address_to_order">
+        <observer instance="Xtento\CustomAttributes\Observer\Framework\Adminhtml\CopyBillingAddressToOrder"
+                  name="Xtento_CustomAttributes_Adminhtml_Observer_Sales_CopyBillingAddressToOrderr"/>
+    </event>
+
+    <event name="sales_order_load_after">
+        <observer name="sales_order_load_order_attributes"
+                  instance="Xtento\CustomAttributes\Observer\Sales\OrderLoadAfter"/>
+    </event>
+    <!--get_data_fieldset_admin_sales_copy_order_billing_address_to_order-->
+    <!--get_data_fieldset_sales_convert_quote_address_to_customer_address-->
+    <!--get_data_fieldset_admin_sales_convert_quote_address_to_customer_address-->
+    <!--sales_convert_quote-->
+    <!--sales_convert_quote_address-->
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-06-14T13:14:57+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/events.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

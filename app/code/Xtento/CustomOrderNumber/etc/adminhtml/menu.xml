@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Xtento_CustomOrderNumber::configuration" title="Order Number Customizer" module="Xtento_CustomOrderNumber" sortOrder="150" parent="Xtento_XtCore::extensions" action="adminhtml/system_config/edit/section/customordernumber" resource="Xtento_CustomOrderNumber::configuration"/>
+    </menu>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomOrderNumber
+ * ID:            TP2Z1gIjMryzjs+kTRDh6aWTwEp5w7T8imVFGAtG5js=
+ * Last Modified: 2017-01-25T13:03:13+00:00
+ * File:          app/code/Xtento/CustomOrderNumber/etc/adminhtml/menu.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

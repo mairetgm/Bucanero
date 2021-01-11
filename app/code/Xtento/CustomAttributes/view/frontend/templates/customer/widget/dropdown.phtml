@@ -1,0 +1,97 @@
+<?php
+// @codingStandardsIgnoreFile
+use Xtento\CustomAttributes\Api\Data\FieldsInterface;
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+
+/** @var \Xtento\CustomAttributes\Model\Fields $field */
+$field = $block->getField();
+$attribute = $field->getData(Data::ATTRIBUTE_DATA);
+?>
+<?php if ($field->getFrontendInput() === InputType::SELECT): ?>
+    <?php
+    $attributeCode = $attribute->getData(FieldsInterface::ATTRIBUTE_CODE);
+    $dropdownselected = $field->getData(FieldsInterface::FRONTEND_OPTION);
+    $attributeLabel = $attribute->getStoreLabel();
+    $value = $block->customAttributeValue($attributeCode);
+    $isDisabled = $block->getIsDisabledOnFrontend();
+    ?>
+    <div class="field <?php echo $attributeCode; ?><?php if ($field->getFieldRequired()) echo ' required'; ?>">
+        <label class="label" for="<?= $block->escapeHtmlAttr($attributeCode) ?>">
+            <span>
+                <?= $block->escapeHtml(__($attributeLabel)) ?>
+            </span>
+        </label>
+        <div class="control" style="display: block">
+            <?php if ($dropdownselected == 1): ?>
+                <?php $options = $block->getOptions(); ?>
+                <?php foreach ($options as $option): ?>
+                    <?php if (trim($option->getLabel()) === '') { continue; } ?>
+                <div class="optionradio" style="display: block">
+                    <input type="radio"
+                        <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                           id="<?= $block->escapeHtmlAttr($attributeCode) ?>_radio<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+                           name="<?= $block->escapeHtmlAttr($attributeCode) ?>_radio"
+                           class="radio <?= $block->escapeHtmlAttr($attributeCode) ?>"
+                        <?php if ($field->getFieldRequired()): ?>
+                            data-validate="{required:true}"
+                        <?php endif; ?>
+                           value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+
+                    />
+                    <label class="label" text="label"><?= $block->escapeHtml(__($option->getLabel())) ?></label>
+                </div>
+                <?php endforeach; ?>
+                <input type="hidden"
+                       id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                       name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                    <?php if ($option->getValue() == $value): ?><?php endif; ?>
+                       value="<?= $block->escapeHtmlAttr($value) ?>"
+                >
+            <?php else: ?>
+                <select id="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                    <?php if ($isDisabled): ?> disabled="disabled" <?php endif; ?>
+                        name="<?= $block->escapeHtmlAttr($attributeCode) ?>"
+                        value="<?= $block->escapeHtmlAttr($block->getTaxvat()) ?>"
+                        title="<?php echo $value ?>"
+                    <?php if ($field->getFieldRequired()): ?>
+                        class="validate-select" data-validate="{required:true}"
+                    <?php endif; ?>>
+                    <?php $options = $block->getOptions(); ?>
+
+                    <?php foreach ($options as $option): ?>
+                        <option
+                                value="<?= $block->escapeHtmlAttr($option->getValue()) ?>"
+                            <?php if ($option->getValue() == $value) echo ' selected="selected"' ?>>
+                            <?= $block->escapeHtml(__($option->getLabel())) ?></option>
+                    <?php endforeach; ?>
+                    <?php if ($field->getFieldRequired()) echo ' data-validate="{required:true}"' ?>
+                </select>
+            <?php endif; ?>
+
+            <script>
+                require(
+                    [
+                        'jquery'
+                    ],
+                    function ($) {
+
+                        var hiddenInput = $('#<?= $block->escapeHtmlAttr($attributeCode) ?>');
+                        var radioInput = $('.radio.<?= $block->escapeHtmlAttr($attributeCode) ?>');
+
+                        radioInput.change(function () {
+                            var radio = $(this);
+                            var valueradio = radio.val();
+
+                            if (radio.is(':checked')) {
+                                hiddenInput.val(valueradio);
+                            }
+                        })
+
+                    }
+                );
+            </script>
+
+        </div>
+    </div>
+<?php endif ?>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Xtento\CustomAttributes\Api\Data\FieldsInterface"
+                type="Xtento\CustomAttributes\Model\Fields" />
+    <preference for="Xtento\CustomAttributes\Api\FieldsRepositoryInterface"
+                type="Xtento\CustomAttributes\Model\FieldsRepository" />
+    <preference for="Xtento\CustomAttributes\Api\Data\OrderCustomerFieldsInterface"
+                type="Xtento\CustomAttributes\Model\Api\Data\OrderCustomerFields" />
+    <preference for="Xtento\CustomAttributes\Api\CustomerOrderFieldsManagementInterface"
+                type="Xtento\CustomAttributes\Model\Api\CustomerOrderFieldsManagement" />
+    <preference for="Xtento\CustomAttributes\Api\GuestCustomerOrderFieldsManagementInterface"
+                type="Xtento\CustomAttributes\Model\Api\GuestCustomerOrderFieldsManagement" />
+    <preference for="Xtento\CustomAttributes\Api\Data\AttributeDataInterface"
+                type="Xtento\CustomAttributes\Model\Api\Data\AttributeData" />
+    <preference for="Xtento\CustomAttributes\Api\Data\FieldsSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults" />
+    <preference for="Magento\Sales\Model\Order\Pdf\Invoice"
+                type="Xtento\CustomAttributes\Plugin\Sales\Order\Pdf\Invoice" />
+    <preference for="Magento\Eav\Model\Attribute\Data\File"
+                    type="Xtento\CustomAttributes\Model\Attribute\Data\File" />
+
+    <type name="Magento\Checkout\Block\Registration">
+        <plugin name="xtea_checkout_create_account"
+                type="Xtento\CustomAttributes\Plugin\Checkout\RegistrationPlugin"
+                sortOrder="1"
+        />
+    </type>
+
+    <type name="Magento\Quote\Model\ShippingAddressManagement">
+        <plugin name="xtea_checkout_shipping_quote_model_shippingaddressmanagement"
+                type="Xtento\CustomAttributes\Plugin\Quote\Model\ShippingAddressManagementPlugin"
+                sortOrder="10"
+        />
+    </type>
+
+    <type name="Magento\Ui\Component\Listing\Columns">
+        <plugin name="Xtento_CustomAttributes::OrderAddAttributesGridColumns"
+                type="Xtento\CustomAttributes\Plugin\Sales\OrderFields\Grid\Columns" />
+    </type>
+
+    <type name="Magento\Quote\Model\BillingAddressManagement">
+        <plugin name="xtea_checkout_shipping_quote_model_billinggaddressmanagement"
+                type="Xtento\CustomAttributes\Plugin\Quote\Model\BillingAddressManagementPlugin"
+                sortOrder="10"
+        />
+    </type>
+
+    <type name="Magento\Sales\Model\Order\Address">
+        <plugin name="sales_order_address_model_after_load"
+                type="Xtento\CustomAttributes\Plugin\Sales\Address\OrderAddressModelPlugin"/>
+    </type>
+
+    <type name="Magento\Framework\DataObject\Copy">
+        <plugin name="framework_dataobject_copy_copydatafromfieldset"
+                type="Xtento\CustomAttributes\Plugin\Framework\CopyDataFromFieldset"/>
+    </type>
+
+    <type name="Magento\Customer\Model\Metadata\Form">
+        <plugin name="xtea_account_metadata_form"
+                type="Xtento\CustomAttributes\Plugin\Customer\Model\MetadataForm"
+                sortOrder="10"
+        />
+    </type>
+
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="fields_data_source" xsi:type="string">Xtento\CustomAttributes\Model\ResourceModel\Collection\Grid\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Xtento\CustomAttributes\Model\ResourceModel\Collection\Grid\Collection">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">xtento_attributes_field_data</argument>
+            <argument name="eventPrefix" xsi:type="string">fields_grid_collection</argument>
+            <argument name="eventObject" xsi:type="string">fields_grid_collection</argument>
+            <argument name="resourceModel" xsi:type="string">Xtento\CustomAttributes\Model\ResourceModel\Fields</argument>
+        </arguments>
+    </type>
+
+    <virtualType name="FieldsGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Xtento\CustomAttributes\Model\ResourceModel\Collection\Grid\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">TemplatesGirdFilterPool</argument>
+        </arguments>
+    </virtualType>
+
+    <virtualType name="Magento\Sales\Model\ResourceModel\Order\Grid"
+                 type="Xtento\CustomAttributes\Model\ResourceModel\GridFields">
+        <arguments>
+            <argument name="finalValues" xsi:type="array">
+            </argument>
+        </arguments>
+    </virtualType>
+</config>
+
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-03-03T22:32:04+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/di.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

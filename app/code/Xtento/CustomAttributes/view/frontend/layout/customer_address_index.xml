@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+        <!--<referenceBlock name="address_book" remove="true"/>
+        <referenceContainer name="content">
+            <block class="Magento\Customer\Block\Address\Book" name="address_book_improved" template="Xtento_CustomAttributes::address/book.phtml" cacheable="false">
+                <block class="Xtento\CustomAttributes\Block\Address\CustomerAttributes" name="customer_address_attributes" template="Xtento_CustomAttributes::address/customer_attributes.phtml"/>
+            </block>
+        </referenceContainer>-->
+    </body>
+</page>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-09-20T20:43:35+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/frontend/layout/customer_address_index.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

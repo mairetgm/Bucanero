@@ -1,0 +1,55 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Xtento\CustomAttributes\Block\Adminhtml\Sales\Order\View\OrderAttributesView $block */
+
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\CustomAttributes;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+
+$customAttributes = [];
+$attributeCount = 0;
+foreach ($block->fields() as $entity => $attributes) {
+    /** @var \Xtento\CustomAttributes\Model\Fields $attribute */
+    foreach ($attributes as $fieldCode => $attribute) {
+        $attributeCount++;
+        $attribute = $attribute->getData(Data::ATTRIBUTE_DATA);
+        $attributeData = $block->addValues($attribute);
+        $value = $attributeData->getData('value') . $attributeData->getData('billing_value') . $attributeData->getData('shipping_value');
+        if (!empty($value)) {
+            if ($attribute->getFrontendInput() === InputType::FILE) {
+                $fileParams = ['file' => $value];
+                if ($entity == CustomAttributes::ADDRESS_ENTITY) {
+                    $fileParams['download_type'] = 'customer_address';
+                }
+                $value = '<a href="' . $block->getUrl('xtento_customattributes/upload/download', $fileParams) . '">' . __('Download File') . '</a>';
+            } else {
+                $value = $block->escapeHtml($value);
+            }
+            $customAttributes[] = [
+                'label' => $attribute->getStoreLabel(),
+                'value' => $value
+            ];
+        }
+    }
+}
+?>
+
+<?php if ($attributeCount > 0): ?>
+    <div class="block block-order-details-view">
+        <div class="block-title">
+            <strong><?= __('Additional Information') ?></strong>
+        </div>
+
+        <div class="box-content">
+            <table cellspacing="0" class="data-table">
+                <?php foreach ($customAttributes as $customAttribute): ?>
+                    <tr>
+                        <td><strong><?= $block->escapeHtml($customAttribute['label']) ?></strong></td>
+                        <td><?= $customAttribute['value'] ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            </table>
+        </div>
+    </div>
+<?php endif; ?>

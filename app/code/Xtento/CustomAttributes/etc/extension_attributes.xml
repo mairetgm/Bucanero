@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Api/etc/extension_attributes.xsd">
+    <extension_attributes for="Magento\Quote\Api\Data\AddressInterface">
+        <attribute code="customer_address" type="Xtento\CustomAttributes\Model\Api\Data\AttributeData"/>
+        <attribute code="customer" type="Xtento\CustomAttributes\Model\Api\Data\AttributeData"/>
+        <attribute code="order_field" type="Xtento\CustomAttributes\Model\Api\Data\AttributeData"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderAddressInterface">
+        <attribute code="customer" type="Xtento\CustomAttributes\Model\Api\Data\AttributeData"/>
+        <attribute code="customer_address" type="Xtento\CustomAttributes\Model\Api\Data\AttributeData"/>
+    </extension_attributes>
+    <extension_attributes for="Magento\Sales\Api\Data\OrderInterface">
+        <attribute code="order_field" type="Xtento\CustomAttributes\Model\Api\Data\OrderAdditionalInfo[]"/>
+    </extension_attributes>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-06-14T13:14:57+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/extension_attributes.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Acl/etc/acl.xsd">
+    <acl>
+        <resources>
+            <resource id="Magento_Backend::admin">
+                <resource id="Magento_Backend::system">
+                    <resource id="Xtento_XtCore::extensions">
+                        <resource id="Xtento_CustomAttributes::configuration" title="Custom Order And Customer Attributes" sortOrder="30"/>
+                    </resource>
+                </resource>
+                <resource id="Magento_Backend::stores">
+                    <resource id="Xtento_CustomAttributes::menu" title="XTENTO Custom Order And Customer Attributes" sortOrder="1000">
+                        <resource id="Xtento_CustomAttributes::customattributes" title="Manage Attributes" sortOrder="5"/>
+                    </resource>
+                </resource>
+            </resource>
+        </resources>
+    </acl>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-12-04T16:17:45+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/acl.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

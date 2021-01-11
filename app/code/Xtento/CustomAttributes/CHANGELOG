@@ -1,0 +1,195 @@
+Xtento_CustomAttributes
+
+-------------
+  CHANGELOG
+-------------
+
+===== 1.2.1 =====
+ * Initial stable M2 release
+
+===== 1.2.2 =====
+ * Fix for customer/customer address attribute not saving/showing
+
+===== 1.2.3 =====
+ * Fixed customer/customer address attributes not appearing in the admin if displaying in frontend is disabled for attribute
+
+===== 1.2.4 =====
+ + Established compatibility with Magento 2.3
+ * Fix for customer attributes not being editable under certain conditions
+
+===== 1.2.5 =====
+ * Fix for orders grid
+
+===== 1.2.6 =====
+ + Added support to re-populate inputs with last value used by customer in last order
+
+===== 1.2.7 =====
+ * Fixed an issue with attributes being required in store views in the frontend where they shouldn't be required
+
+===== 1.2.8 =====
+ + Added ability to upload files in frontend/backend. Not 100% functional yet.
+ * Fixed an issue where attributes where required to check out even though they weren't enabled in that store view
+
+===== 1.2.9 =====
+ * Customer attributes in backend will only show if they are selected for the website/store view the customer is assigned to
+
+===== 1.3.0 =====
+ * Fixed compilation issue on Magento >=2.3.1
+ * Fixed multiple minor issues, improved file upload functionality
+
+===== 1.3.1 =====
+ * Checks if attributes are not required (and thus disabling them) are even run if module is disabled. Required, as could cause problems otherwise.
+
+===== 1.3.2 =====
+ + Added option to disable customer attributes on frontend (show them, but they are not editable)
+ * Fixed issue in checkout where certain order attributes may not have been saved
+
+===== 1.3.3 =====
+ * Fixed issue where attribute label translations weren't used in some parts of the frontend
+
+===== 1.3.4 =====
+ * When creating a new customer, custom attributes are not required, as the store isn't known yet
+ * Improvements to file upload functionality
+ * Bumped minimum Magento compatibility to 2.2+
+
+===== 1.3.5 =====
+ * Fixed issue where customer address attribute was shown in customer account when it shouldn't show
+
+===== 1.3.6 =====
+ * Updated Xtento_XtCore to version 2.5.0
+
+===== 1.3.7 =====
+ * Fixed issue for checkout field position/sorting
+ * Fixed issue when reordering (an order)
+
+===== 1.3.8 =====
+ + Added "Attribute" helper to retrieve text of dropdown/radio button customer attributes (more to come, if required)
+ * Fixed issue for WebAPI requests ("Class string does not exist")
+ * Fixed issue when deleting attributes ("The entity ID is incorrect. Verify the ID and try again.")
+
+===== 1.3.9 =====
+ + Added order attributes to order (web-)API
+ * Compatibility release that fixes issues with Magento 2.2.x
+
+===== 1.4.0 =====
+ * Fixed an issue on quote creation
+
+===== 1.4.1 =====
+ * Fixed checkout error "keyVal.indexOf is not a function"
+
+===== 1.4.2 =====
+ * Fixed issue where address book in frontend showed additional addresses twice
+ * Fixed issue where certain custom attributes didn't save/were empty after checkout ("Above Shipping Method", etc.)
+
+===== 1.4.3 =====
+ * Fixed issue with stores operating in single-store-mode where attributes didn't appear etc. Resave your custom attributes once if using single-store-mode.
+ * Fixed an issue where the custom attributes section did not appear when viewing an order
+ * Fixed an issue where dropdown/select attributes could not be edited in the admin when viewing an order (wrong value)
+ * Fixed an issue where fields to show in the sales orders grid couldn't be selected (only order fields can be shown)
+ * Fixed an issue where yes/no checkbox fields didn't show a value in the sales orders grid
+ * Updated Xtento_XtCore to version 2.7.0
+
+===== 1.4.4 =====
+ * Established compatibility with Magento 2.2.10 / 2.3.3
+ * Established compatibility with PHP 7.3
+ * Updated Xtento_XtCore to version 2.8.0
+
+===== 1.4.5 =====
+ * Fixed an issue where wrong attribute values where displayed in the backend
+
+===== 1.4.6 =====
+ * Fixed file uploads in checkout
+ * Fixed file downloads in backend
+
+===== 1.4.7 =====
+ * File uploads "below payment method" are usable now
+
+===== 1.4.8 =====
+ * Fixed an issue where fields were required when placing an order in the admin even though field required was set to "only in frontend"
+
+===== 1.4.9 =====
+ * Fixed an issue with compilation
+
+===== 1.5.0 =====
+ * Fixed an issue where customer address attributes were shown in the checkout even though they shouldn't be shown
+ * Fixed an issue where in the frontend textarea attributes were shown as input elements instead
+
+===== 1.5.1 =====
+ + Added ability to upload files in the backend when viewing an order. Files are now stored correctly.
+ + Order attributes are now shown in the frontend if a customer views the order detail at "My Orders" in the frontend. Make sure to set "Frontend visibility" of the attribute to "Order view"
+ * Fixed an issue where custom address attributes were displayed in the checkout address renderer even though they shouldn't
+
+===== 1.5.2 =====
+ * Fixed an issue when trying to edit attributes of an order in the admin in case there is only a file upload file and nothing else
+
+===== 1.5.3 =====
+ * Fixed compatibility issue with Magento <=2.2.6
+
+===== 1.5.4 =====
+ + More attribute details such as field type are shown in "Manage Attributes" grid
+ * Fixed an issue where attributes didn't appear in the backend
+ * Fixed an issue where the "default" setting of dropdown/select attributes wasn't saved
+
+===== 1.5.5 =====
+ * Improved ACL so non-full-admin users can download files (need access to Sales > Orders to do so)
+ * Added error message when downloading file and file doesn't exist anymore
+
+===== 1.5.6 =====
+ * Fixed issue with checkout for virtual-only item orders
+
+===== 1.5.7 =====
+ * Fixed an issue for admin order creation
+ * Fixed another issue with virtual-only orders
+
+===== 1.5.8 =====
+ + Added a webapi method to update custom attribute values of existing orders, see: https://support.xtento.com/wiki/Magento_2_Extensions:Order_And_Customer_Attributes#Updating_values_of_order_attributes_for_existing_orders_via_the_API
+
+===== 1.5.9 =====
+ * Fix for webapi method to update custom attribute values
+
+===== 1.6.0 =====
+ * Updated Xtento_XtCore to version 2.9.0
+
+===== 1.6.1 =====
+ * Fixed an issue with customer attributes appearing as editable in the customer account section even though they shouldn't (and cannot be saved)
+
+===== 1.6.2 =====
+ * Fixed an issue with radio buttons that are "required" not causing errors if they're empty in customer area
+
+===== 1.6.3 =====
+ * Fixed an issue where "Show as checkboxes" in "multi checkboxes" field always showed "No"
+ * Fixed an issue where non-customer attributes were shown in the admin > edit customer screen
+
+===== 1.6.4 =====
+ * Fixed recursion issue
+ * Fixed wrong labels in checkout for attributes (always from default store view)
+
+===== 1.6.5 =====
+ + Added ability to show address attributes if "Display Billing Address On => Payment Page" is used
+ * Fixed an issue when saving a newly created attribute fails and you try to resave it, attribute type was lost
+ * Fixed issue with date formats / filtering in backend
+
+===== 1.6.6 =====
+ + Added CSS classes to billing/shipping address custom attributes in checkout address renderers so one can hide unwanted attributes from specific area via CSS
+
+===== 1.6.7 =====
+ * Fixed issue when editing address within an order in the Magento backend
+ * Established compatibility with Magento 2.4.0 and 2.3.5-p2
+ * Established compatibility with PHP 7.4, dropped support for PHP 5.x
+ * Updated Xtento_XtCore to version 2.10.0
+
+===== 1.6.8 =====
+ * Fixed an issue where for date fields the "default value" field got populated in the backend when editing an attribute even though it shouldn't
+
+===== 1.6.9 =====
+ * Fixed an issue where extension related images/JS cannot be loaded in the Magento backend
+ * Updated Xtento_XtCore to version 2.11.0 ("Added Content Security Policy (CSP) support. XTENTO resources are whitelisted.")
+
+===== 1.7.0 =====
+ + Established compatibility with Magento 2.4.1
+
+===== 1.7.1 =====
+ + Established compatibility with Magento 2.3.6
+
+===== 1.7.2 =====
+ * Fixed issue "Undefined property: Xtento\CustomAttributes\Plugin\Sales\Order\Pdf\Invoice::$_localeResolver" for >=2.3.6/>=2.4.1

@@ -1,0 +1,93 @@
+<?php
+// @codingStandardsIgnoreFile
+
+/** @var \Xtento\CustomAttributes\Block\Adminhtml\Sales\Order\View\OrderAttributesView $block */
+
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\CustomAttributes;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+
+$customAttributes = [];
+$attributeCount = 0;
+foreach ($block->fields() as $entity => $attributes) {
+    /** @var \Xtento\CustomAttributes\Model\Fields $attribute */
+    foreach ($attributes as $fieldCode => $attribute) {
+        $attributeCount++;
+        $attribute = $attribute->getData(Data::ATTRIBUTE_DATA);
+        $attributeData = $block->addValues($attribute);
+        $value = $attributeData->getData('value') . $attributeData->getData('billing_value') . $attributeData->getData('shipping_value');
+        if (!empty($value)) {
+            if ($attribute->getFrontendInput() === InputType::FILE) {
+                $fileParams = ['file' => $value];
+                if ($entity == CustomAttributes::ADDRESS_ENTITY) {
+                    $fileParams['download_type'] = 'customer_address';
+                }
+                $value = '<a href="' . $block->getUrl('xtento_customattributes/upload/download', $fileParams) . '">' . __('Download File') . '</a>';
+            } else {
+                $value = $block->escapeHtml($value);
+            }
+            $customAttributes[] = [
+                'label' => $attribute->getStoreLabel(),
+                'value' => $value
+            ];
+        }
+    }
+}
+?>
+
+<?php if ($attributeCount > 0): ?>
+    <section class="admin__page-section order-view-account-information">
+        <div class="admin__page-section-title">
+            <span class="title"><?php echo __('Additional Information (Custom Attributes)') ?></span>
+            <div class="actions">
+                <a href="<?php echo $block->getUrl('xtento_customattributes/order/edit', ['order_id' => $block->getOrder()->getId()]) ?>"><?php echo __('Edit') ?></a>
+            </div>
+        </div>
+        <div class="admin__page-section-content">
+            <div class="admin__page-section-item order-information">
+                <div class="admin__page-section-item-content">
+                    <table class="admin__table-secondary order-information-table">
+                        <tbody>
+                        <?php $i = 0; ?>
+                        <?php foreach ($customAttributes as $customAttribute): ?>
+                            <?php $i++;
+                            if ($i % 2 == 0) {
+                                continue;
+                            } ?>
+                            <tr>
+                                <th><?= $block->escapeHtml($customAttribute['label']) ?></th>
+                                <td>
+                                    <strong><?= $customAttribute['value'] ?></strong>
+                                </td>
+                            </tr>
+                        <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <?php if (count($customAttributes) > 1): ?>
+                <div class="admin__page-section-item order-information" style="float: right;">
+                    <div class="admin__page-section-item-content">
+                        <table class="admin__table-secondary order-information-table">
+                            <tbody>
+                            <?php $i = 0; ?>
+                            <?php foreach ($customAttributes as $customAttribute): ?>
+                                <?php $i++;
+                                if ($i % 2 != 0) {
+                                    continue;
+                                } ?>
+                                <tr>
+                                    <th><?= $block->escapeHtml($customAttribute['label']) ?></th>
+                                    <td>
+                                        <strong><?= $customAttribute['value'] ?></strong>
+                                    </td>
+                                </tr>
+                            <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            <?php endif; ?>
+        </div>
+    </section>
+<?php endif; ?>

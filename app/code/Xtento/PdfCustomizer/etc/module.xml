@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Module/etc/module.xsd">
+    <module name="Xtento_PdfCustomizer" setup_version="2.13.3"/>
+</config>
+<!--
+/**
+ * Product:       Xtento_PdfCustomizer
+ * ID:            TP2Z1gIjMryzjs+kTRDh6aWTwEp5w7T8imVFGAtG5js=
+ * Last Modified: 2020-11-09T11:49:48+00:00
+ * File:          app/code/Xtento/PdfCustomizer/etc/module.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

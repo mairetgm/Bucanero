@@ -1,0 +1,38 @@
+.field-tooltip.toggle .label {
+    display: none;
+}
+#shipping-new-address-form {
+    font-size: 0;
+}
+
+.amcheckout-email.control._with-tooltip {
+    padding-right: 0;
+}
+
+.amcheckout-email .amcheckout-wrapper {
+    width: min-content!important;
+}
+
+.control._with-tooltip {
+    padding-right: 25px!important;
+}
+
+.amcheckout-step-container .amcheckout-summary-container .minicart-items .product-image-container {
+    width: 75px!important;
+}
+
+.amcheckout-step-container .amcheckout-summary-container .minicart-items .product-item-details {
+    padding-left: 20px!important;
+}
+
+.amcheckout-step-container .amcheckout-summary-container .details-qty .label {
+    margin: 0 10px 0 0!important;
+}
+
+.payment-method .payment-method-title .class-custom-banner-checkout img {
+    width: 100%;
+}
+
+.fieldset.address > .field {
+    padding: 0 2px!important;
+}

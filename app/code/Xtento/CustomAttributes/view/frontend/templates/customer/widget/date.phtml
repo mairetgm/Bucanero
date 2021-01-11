@@ -1,0 +1,41 @@
+<?php
+// @codingStandardsIgnoreFile
+use Xtento\CustomAttributes\Api\Data\FieldsInterface;
+use Xtento\CustomAttributes\Helper\Data;
+use Xtento\CustomAttributes\Model\Sources\InputType;
+/** @var \Xtento\CustomAttributes\Block\Customer\Widget\Date $block */
+/** @var \Xtento\CustomAttributes\Model\Fields $field */
+$field = $block->getField();
+$attribute = $field->getData(Data::ATTRIBUTE_DATA);
+$fieldCssClass = 'field date field-' . $block->getHtmlId();
+$fieldCssClass .= $block->isRequired() ? ' required' : '';
+$dateselected = $field->getData(FieldsInterface::FRONTEND_OPTION);
+?>
+
+<?php if ($field->getFrontendInput() === InputType::DATE): ?>
+    <?php
+    $attributeCode = $attribute->getData(FieldsInterface::ATTRIBUTE_CODE);
+    $attributeLabel = $attribute->getStoreLabel();
+    $isDisabled = $block->getIsDisabledOnFrontend();
+    ?>
+    <div class="field <?php echo $attributeCode; ?><?php if ($field->getFieldRequired()) echo ' required'; ?>">
+        <label class="label" for="<?= $block->escapeHtmlAttr($attributeCode) ?>">
+            <span>
+                <?= $block->escapeHtml(__($attributeLabel)) ?>
+            </span>
+        </label>
+        <div class="<?= $block->escapeHtmlAttr($fieldCssClass) ?>">
+            <div class="control customer-dob" <?php if ($field->getFieldRequired()) echo ' data-validate="{required:true}"' ?>>
+                <?php if ($dateselected == 1): ?>
+                    <?= $block->getFieldHtml() ?>
+                <?php else:?>
+                    <?= $block->getFieldHtml() ?>
+                <?php endif;?>
+                <?php if ($_message = $block->getAdditionalDescription()) : ?>
+                    <div class="note"><?= $block->escapeHtml($_message) ?></div>
+                <?php endif; ?>
+
+            </div>
+        </div>
+    </div>
+<?php endif ?>

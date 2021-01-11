@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:Event/etc/events.xsd">
+    <event name="sales_order_invoice_save_before">
+        <observer name="xtento_customordernumber_sales_order_invoice_save_before" instance="Xtento\CustomOrderNumber\Observer\SalesOrderInvoiceSaveBeforeObserver"/>
+    </event>
+    <event name="sales_order_shipment_save_before">
+        <observer name="xtento_customordernumber_sales_order_shipment_save_before" instance="Xtento\CustomOrderNumber\Observer\SalesOrderShipmentSaveBeforeObserver"/>
+    </event>
+    <event name="sales_order_creditmemo_save_before">
+        <observer name="xtento_customordernumber_sales_order_creditmemo_save_before" instance="Xtento\CustomOrderNumber\Observer\SalesOrderCreditmemoSaveBeforeObserver"/>
+    </event>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomOrderNumber
+ * ID:            TP2Z1gIjMryzjs+kTRDh6aWTwEp5w7T8imVFGAtG5js=
+ * Last Modified: 2016-02-25T18:52:24+00:00
+ * File:          app/code/Xtento/CustomOrderNumber/etc/events.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

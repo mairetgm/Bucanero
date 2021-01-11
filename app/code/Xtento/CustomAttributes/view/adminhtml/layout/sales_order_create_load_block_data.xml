@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="sales_order_create_item_price"/>
+    <body>
+        <referenceBlock name="data">
+            <action  method="setTemplate">
+                <argument name="template" xsi:type="string">Xtento_CustomAttributes::order/create/data.phtml</argument>
+            </action>
+            <block class="Xtento\CustomAttributes\Block\Adminhtml\Sales\Order\Create\OrderAttributes" name="order_attributes" template="Xtento_CustomAttributes::order/create/order_attributes.phtml"/>
+        </referenceBlock>
+    </body>
+</page>
+
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-01-12T17:30:34+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/adminhtml/layout/sales_order_create_load_block_data.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

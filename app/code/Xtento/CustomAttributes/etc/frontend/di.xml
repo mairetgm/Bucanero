@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Checkout\LayoutProcessor">
+        <plugin name="xtento_checkout_shipping_address_fields"
+                type="Xtento\CustomAttributes\Plugin\Checkout\ShippingLayoutProcessor" sortOrder="1"/>
+        <plugin name="xtento_checkout_billing_address_fields"
+                type="Xtento\CustomAttributes\Plugin\Checkout\BillingLayoutProcessor" sortOrder="1"/>
+    </type>
+    <type name="Magento\Eav\Model\Attribute">
+        <plugin sortOrder="1" name="xtento_check_attribute_required_frontend_plugin" type="Xtento\CustomAttributes\Plugin\Eav\Model\AttributePlugin"/>
+    </type>
+    <type name="Magento\Eav\Model\Entity\Attribute">
+        <plugin sortOrder="1" name="xtentoCustomAttributesAttribute" type="Xtento\CustomAttributes\Plugin\Eav\Model\Entity\AttributePlugin"/>
+    </type>
+</config>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-02-13T21:46:25+00:00
+ * File:          app/code/Xtento/CustomAttributes/etc/frontend/di.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->

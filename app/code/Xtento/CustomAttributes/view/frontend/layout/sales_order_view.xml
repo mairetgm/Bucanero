@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <referenceContainer name="content">
+        <block class="Xtento\CustomAttributes\Block\Order\View\Attributes" as="xtento_order_attributes" name="order.xtento.attributes" after="sales.order.info" template="Xtento_CustomAttributes::order/view/attributes.phtml"/>
+    </referenceContainer>
+</page>
+<!--
+/**
+ * Product:       Xtento_CustomAttributes
+ * ID:            SI4Hun9m/xiQVsUoazSzL/FctvYBoSsCO3VpsqowTZI=
+ * Last Modified: 2019-12-11T14:12:57+00:00
+ * File:          app/code/Xtento/CustomAttributes/view/frontend/layout/sales_order_view.xml
+ * Copyright:     Copyright (c) XTENTO GmbH & Co. KG <info@xtento.com> / All rights reserved.
+ */
+-->
