@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+ * Copyright © 2020 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <!-- add css and js files -->
+    <head>
+        <css src="Wyomind_OrdersExportTool::css/functions/style.css"/>
+        <css src="Wyomind_Framework::js/codemirror/codemirror.css"/>
+        <link src="Wyomind_Framework::js/codemirror/codemirror.js"/>
+        <link src="Wyomind_Framework::js/codemirror/formatting.js"/>
+        <link src="Wyomind_Framework::js/codemirror/active-line.js"/>
+        <link src="Wyomind_Framework::js/codemirror/matchbrackets.js"/>
+        <link src="Wyomind_Framework::js/codemirror/htmlmixed/htmlmixed.js"/>
+        <link src="Wyomind_Framework::js/codemirror/xml/xml.js"/>
+        <link src="Wyomind_Framework::js/codemirror/javascript/javascript.js"/>
+        <link src="Wyomind_Framework::js/codemirror/css/css.js"/>
+        <link src="Wyomind_Framework::js/codemirror/clike/clike.js"/>
+        <link src="Wyomind_Framework::js/codemirror/php/php.js"/>
+        <link src="Wyomind_Framework::js/codemirror/autorefresh.js"/>
+        <link src="Wyomind_OrdersExportTool::js/functions/edit.js"/>
+    </head>
+    <!-- main block -->
+    <body>
+        <referenceContainer name="content">
+            <block class="Wyomind\OrdersExportTool\Block\Adminhtml\Functions\Edit" name="ordersexporttool_function_edit"/>
+        </referenceContainer>
+    </body>
+</page>

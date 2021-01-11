@@ -1,0 +1,29 @@
+<?php /* underscorejs template for an action options */ ?>
+<script id="ou-action-select-template" type="text/x-magento-template">
+    <div class="action-cell action-options">
+        <span class="cell label"><%= label %></span>
+            <span class="cell selection">
+            <select class="action-option-<%= actionOptionIndex %>">
+                <option value="">-- <?php echo __('Select a value'); ?> --</option>
+                <% _.each(groups, function(group, groupIndex) { %>
+                <optgroup data-options label="-- <%= group.name %> --">
+                    <% _.each(group.values, function(value, valueIndex) { %>
+                    <option value="<%= valueIndex %>" ><%= value %></option>
+                    <% }); %>
+                </optgroup>
+                <% }); %>
+            </select>
+        </span>
+        <span class="cell custom">
+            <input type="text" class="action-option-<%= actionOptionIndex %>-custom" style="display:none">
+            <textarea class="action-option-<%= actionOptionIndex %>-script" style="display:none"></textarea>
+        </span>
+        <span class="action-options-buttons-right">
+            <span class="cell body icons">
+                <span class="icon code tooltip">
+                    <div class="tooltip-content right-tip"><?=__("Apply a custom code to this action option")?></div>
+                </span>
+            </span>
+        </span>
+    </div>
+</script>

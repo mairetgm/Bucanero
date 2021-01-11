@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../lib/internal/Magento/Framework/ObjectManager/etc/config.xsd">
+
+    <!-- PROGRESS BAR CONFIGURATION STARTS -->
+    <virtualType name="Wyomind\OrderUpdater\Block\Adminhtml\Progress\Status" type="Wyomind\Framework\Block\Adminhtml\Progress\Status">
+        <arguments>
+            <argument name="module" xsi:type="string">OrderUpdater</argument>
+            <argument name="field" xsi:type="string">cron_settings</argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Wyomind\OrderUpdater\Helper\Progress" type="Wyomind\Framework\Helper\Progress">
+        <arguments>
+            <argument name="module" xsi:type="string">OrderUpdater</argument>
+            <argument name="tempDirectory" xsi:type="string">/var/tmp/OrderUpdater/</argument>
+            <argument name="filePrefix" xsi:type="string">profile_</argument>
+        </arguments>
+    </virtualType>
+    <!-- PROGRESS BAR CONFIGURATION ENDS -->
+
+
+    <!-- LOGGER CONFIGURATION STARTS -->
+    <virtualType name="Wyomind\OrderUpdater\Logger\Logger" type="\Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">OrderUpdater</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="OrderUpdater" xsi:type="object">Wyomind\OrderUpdater\Logger\Handler</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Wyomind\OrderUpdater\Logger\Handler" type="\Wyomind\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/Wyomind_OrderUpdater.log</argument>
+            <argument name="filePath" xsi:type="string"/>
+        </arguments>
+    </virtualType>
+
+    <!-- LOGGER CONFIGURATION ENDS -->
+
+    <!-- LOGGERCRON CONFIGURATION STARTS -->
+    <virtualType name="Wyomind\OrderUpdater\Logger\LoggerCron" type="\Monolog\Logger">
+        <arguments>
+            <argument name="name" xsi:type="string">OrderUpdaterCron</argument>
+            <argument name="handlers" xsi:type="array">
+                <item name="OrderUpdater" xsi:type="object">Wyomind\OrderUpdater\Logger\HandlerCron</item>
+            </argument>
+        </arguments>
+    </virtualType>
+    <virtualType name="Wyomind\OrderUpdater\Logger\HandlerCron" type="\Wyomind\Framework\Logger\Handler\Base">
+        <arguments>
+            <argument name="fileName" xsi:type="string">/var/log/Wyomind_OrderUpdater.log</argument>
+            <argument name="filePath" xsi:type="string"/>
+        </arguments>
+    </virtualType>
+    <!-- LOGGERCRON CONFIGURATION ENDS -->
+
+    <!-- COMMAND LINE -->
+    <type name="Magento\Framework\Console\CommandList">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="wyomind_orderupdater_run" xsi:type="object">Wyomind\OrderUpdater\Console\Command\Run</item>
+            </argument>
+        </arguments>
+    </type>
+
+
+    <type name="Wyomind\OrderUpdater\Controller\Adminhtml\Profiles\Library">
+        <arguments>
+            <argument name="dataHelper" xsi:type="object">Wyomind\OrderUpdater\Helper\Data\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Wyomind\OrderUpdater\Controller\Adminhtml\Profiles\Ftp">
+        <arguments>
+            <argument name="ftpHelper" xsi:type="object">Wyomind\OrderUpdater\Helper\Ftp\Proxy</argument>
+        </arguments>
+    </type>
+    <type name="Wyomind\OrderUpdater\Controller\Adminhtml\Profiles\Preview">
+        <arguments>
+            <argument name="storageHelper" xsi:type="object">Wyomind\OrderUpdater\Helper\Storage\Proxy</argument>
+            <argument name="dataHelper" xsi:type="object">Wyomind\OrderUpdater\Helper\Data\Proxy</argument>
+            <argument name="configHelper" xsi:type="object">Wyomind\OrderUpdater\Helper\Config\Proxy</argument>
+        </arguments>
+    </type>
+
+</config>

@@ -270,6 +270,10 @@ return [
         'Temando_Shipping' => 1,
         'Vertex_Tax' => 1,
         'Vertex_AddressValidation' => 1,
+        'Wyomind_Framework' => 1,
+        'Wyomind_MassStockUpdate' => 0,
+        'Wyomind_OrderUpdater' => 0,
+        'Wyomind_OrdersExportTool' => 1,
         'Yotpo_Yotpo' => 1
     ]
 ];

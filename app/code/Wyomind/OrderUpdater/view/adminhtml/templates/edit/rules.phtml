@@ -1,0 +1,126 @@
+<?php $operands = $this->getOperands(); ?>
+<?php $conditions = $this->getConditions(); ?>
+<?php $conditionOperands = $this->getConditionOperands(); ?>
+<?php $actions = $this->getActions(); ?>
+<?php $orderStatuses = $this->getOrderStatuses(); ?>
+<?php $orderStates = $this->getOrderStates(); ?>
+<?php $stores = $this->getStores(); ?>
+
+
+
+<fieldset id="orderupdater_rules" class="fieldset admin__fieldset">
+    <legend class="admin__legend legend">
+        <span><?php echo __('Rules'); ?></span>
+    </legend>
+    <br/>
+
+    <ul id="rules-area">
+    </ul>
+
+    <script id="no-file-template" type="text/x-magento-template">
+        <li class="rule-row">
+            <div class="order_rule_container">
+                <?php echo __('No file available. Please set an available file and reload'); ?>
+            </div>
+        </li>
+    </script>
+
+    <script id="ou-rule-template" type="text/x-magento-template">
+        <li class="rule-row">
+            <div class="order_rule_container">
+                <div class="order_rule_link">
+                    <span class="cell body">
+                        <span class="icon grip tooltip">
+                            <div class="tooltip-content"><?=__("Drag this rule up/down")?></div>
+                        </span>
+                    </span>
+                </div>
+                <div class="order_rule_panel">
+                    <div class="order_rule">
+                        <div class="order_rule_name">
+                            <span class="cell rule-title hidden"><input type="text" class="rtitle"></span>
+                                <div class="order_rule_disable">
+                                    <span class="icon tagrule tooltip">
+                                        <div class="tooltip-content right-tip"><?=__("Apply a label to this rule")?></div>
+                                    </span>
+                                    <span class="icon link tooltip">
+                                        <div class="tooltip-content right-tip"><?=__("Enable/disable this rule")?></div>
+                                    </span>
+                                </div>
+                        </div>
+                        <div class="conditions-title"><?=__('Conditions')?></div>
+                        <div class="actions-title"><?=__('Actions')?></div>
+                        <ul class="actions-list ui-sortable">
+                        </ul>
+                    </div>
+                </div>
+                <div class="order_rule_add">
+                    <span class="cell body">
+                        <span class="icon rule-trash tooltip">
+                            <div class="tooltip-content right-tip"><?=__("Delete this rule")?></div>
+                        </span>
+                        <span class="icon rule-add tooltip">
+                            <div class="tooltip-content right-tip"><?=__("Add a new rule")?></div>
+                        </span>
+                    </span>
+                </div>
+            </div>
+        </li>
+    </script>
+
+    <?= $block->getChildHtml('orderupdater_profiles_edit_tab_rules_conditions'); ?>
+    <?= $block->getChildHtml('orderupdater_profiles_edit_tab_rules_actions'); ?>
+
+    <script id="ou-condition-value-select-template" type="text/x-magento-template">
+        <select class="value">
+            <% _.each(options, function(value, key) { %>
+            <option value="<%= key %>" ><%= value %></option>
+            <% }); %>
+        </select>
+    </script>
+
+    <script id="ou-condition-value-multiselect-template" type="text/x-magento-template">
+        <select multiple class="value">
+            <% _.each(options, function(value, key) { %>
+            <option value="<%= key %>" ><%= value %></option>
+            <% }); %>
+        </select>
+    </script>
+
+    <script id="ou-condition-value-input-template" type="text/x-magento-template">
+        <input type="text" class="value" />
+    </script>
+
+    <input type="hidden" id="rule-data" value='{"rules":[]}'>
+
+    <script>
+        require(['jquery', 'wyomind_OrderUpdater_profilerenderer'], function ($,profilerenderer) {
+            profilerenderer.operands = <?=$operands?>;
+            profilerenderer.conditions = <?=$conditions?>;
+            profilerenderer.conditionOperands = <?=$conditionOperands?>;
+            profilerenderer.actions = <?=$actions?>;
+            profilerenderer.orderStatuses = <?=$orderStatuses?>;
+            profilerenderer.orderStates = <?=$orderStates?>;
+            profilerenderer.stores = <?=$stores?>;
+            profilerenderer.initialize();
+        });
+    </script>
+
+    <div id="overlay">
+        <div id="scripting">
+            <textarea id="codemirror"></textarea>
+            <div class="handler">
+                <button type="button" class="validate">Validate</button>
+                <button type="button" class="cancel">Cancel</button>
+                <button type="button" class="clear">Clear</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        orderUpdaterLoadLibraryUrl = '<?php echo $this->getUrl('*/*/library', array('profile_id' => $this->getProfileId())) ?>';
+        orderUpdaterLoadFileUrl = '<?php echo $this->getUrl('*/*/preview', array('profile_id' => $this->getProfileId())) ?>';
+        orderUpdaterLoadPreviewUrl = '<?php echo $this->getUrl('*/*/run', array('id' => $this->getProfileId(), 'isOutput' => true, 'preview' => 1)) ?>';
+    </script>
+</fieldset>
+

@@ -1,0 +1,67 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="../../../../../../../lib/internal/Magento/Framework/View/Layout/etc/page_configuration.xsd">
+    <update handle="editor"/>
+    <head>
+        <css src="Wyomind_OrderUpdater::css/edit.css"/>
+        <css src="Wyomind_Framework::js/codemirror/codemirror.css"/>
+
+        <link src="Wyomind_OrderUpdater::js/edit.js"/>
+    
+
+        <css src="jquery/colorpicker/css/colorpicker.css"/>
+
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Wyomind\OrderUpdater\Block\Adminhtml\Profiles\Edit" name="orderupdater_profiles_edit"/>
+            <block class="Magento\Backend\Block\Template" name="blackbox"
+                   template="Wyomind_OrderUpdater::edit/blackbox.phtml" after="-"/>
+        </referenceContainer>
+
+        <referenceContainer name="left">
+            <block class="Wyomind\OrderUpdater\Block\Adminhtml\Profiles\Edit\Tabs"
+                   name="orderupdater_profiles_edit_tabs">
+
+                <block class="Wyomind\OrderUpdater\Block\Adminhtml\Profiles\Edit\Tab\Main"
+                       name="orderupdater_profiles_edit_tab_main"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">main_section</argument>
+                    <argument name="block" xsi:type="string">orderupdater_profiles_edit_tab_main</argument>
+                </action>
+                <block class="Wyomind\OrderUpdater\Block\Adminhtml\Profiles\Edit\Tab\Rules"
+                       name="orderupdater_profiles_edit_tab_rules"
+                       template="Wyomind_OrderUpdater::edit/rules.phtml">
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="orderupdater_profiles_edit_tab_rules_conditions"
+                           template="Wyomind_OrderUpdater::edit/rules/conditions.phtml" />
+                    <block class="Magento\Framework\View\Element\Template"
+                           name="orderupdater_profiles_edit_tab_rules_actions"
+                           template="Wyomind_OrderUpdater::edit/rules/actions.phtml">
+                        <block class="Magento\Framework\View\Element\Template"
+                               name="orderupdater_profiles_edit_tab_rules_actions_options"
+                               template="Wyomind_OrderUpdater::edit/rules/actions/options.phtml" />
+                        <block class="Magento\Framework\View\Element\Template"
+                               name="orderupdater_profiles_edit_tab_rules_actions_input"
+                               template="Wyomind_OrderUpdater::edit/rules/actions/input.phtml" />
+                    </block>
+                </block>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">rules_section</argument>
+                    <argument name="block" xsi:type="string">orderupdater_profiles_edit_tab_rules</argument>
+                </action>
+
+
+                <block class="Wyomind\OrderUpdater\Block\Adminhtml\Profiles\Edit\Tab\Cron"
+                       name="orderupdater_profiles_edit_tab_cron"
+                       template="Wyomind_OrderUpdater::edit/cron.phtml"/>
+                <action method="addTab">
+                    <argument name="name" xsi:type="string">cron_section</argument>
+                    <argument name="block" xsi:type="string">orderupdater_profiles_edit_tab_cron</argument>
+                </action>
+
+
+            </block>
+        </referenceContainer>
+    </body>
+</page>

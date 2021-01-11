@@ -157,6 +157,14 @@ require([
 
 			});
 
+			//check in checkout
+			if ($('#billing-address-same-as-shipping-rootways_psigate_option').length > 0 ) {
+				$('#billing-address-same-as-shipping-rootways_psigate_option').click();
+			}
+
+			//Translate Add to Cart
+			$('button .btn-cart .text').html('Adicionar al carrito');
+
 
 			$("[data-appear-animation]").each(function() {
 				$(this).addClass("appear-animation");

@@ -565,7 +565,8 @@ class Psigate extends \Magento\Payment\Model\Method\Cc
         }
         $psi_u = true;
         $psi_u_amount = false;
-        $x_invo_amount = htmlentities($get_data['x_invoice_num']) . $get_data['x_amount'] . '-' . substr(uniqid() , -4);
+        //$x_invo_amount = htmlentities($get_data['x_invoice_num']) . $get_data['x_amount'] . '-' . substr(uniqid() , -4);
+        $x_invo_amount = htmlentities($get_data['x_invoice_num']);
         if ($get_data['x_type'] == 'AUTH_CAPTURE') {
             $ref_id = 0;
         } elseif ($get_data['x_type'] == 'AUTH_ONLY') {

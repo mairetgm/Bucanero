@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!--
+ * Copyright © 2020 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Wyomind_Framework::js/progress.js"/>
+        <link src="Wyomind_Framework::css/progress.css"/>
+    </head>
+    <body>
+        <referenceContainer name="content">
+            <block class="Wyomind\OrdersExportTool\Block\Adminhtml\Profiles"
+                   name="ordersexporttool_profiles"/>
+            <block class="Magento\Framework\View\Element\Template"
+                   name="ordersexporttool_profiles_index"
+                   template="Wyomind_OrdersExportTool::profiles/index.phtml"/>
+        </referenceContainer>
+    </body>
+</page>

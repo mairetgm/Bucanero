@@ -3,6 +3,14 @@
 <?php $canUsePanel = $helper->acceptToUsePanel() ?>
 <?php $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); ?>
 <?php $customerSession = $objectManager->create('Magento\Customer\Model\Session'); ?>
+
+<?php if ($customerSession->isLoggedIn()) {
+    $customerSession->getCustomer();
+    $name = 'Bienvenido '.$customerSession->getCustomer()->getName();  // get  Full Name
+} else {
+    $name = '';
+}?>
+
 <?php $customerUrl = $objectManager->create('Magento\Customer\Model\Url'); ?>
 
 <?php // Variable Layout Element ?>
@@ -95,6 +103,7 @@
                     <?php endif ?>
                 </div>
                 <div class="col-md-4 hidden-sm hidden-xs col-sm-12 col-xs-12">
+                    <span><?php echo $name; ?></span>
                     <?php echo $storeLanguage ?>
                     <?php echo $currency ?>
                 </div>
@@ -114,10 +123,9 @@
                 
                 <div class="hidden-lg col-md-4 col-sm-4 logo-header mobile-item-col"><?php echo $logo ?></div>
                 
-                <div class="col-lg-8 col-xs-12 megamenu-content">
+                <div class="col-lg-6 col-xs-12 megamenu-content">
                     <?php echo $htmlTabMenu ?><?php echo $htmlTabContent ?>
                 </div>
-                
                 <div class="col-lg-2 col-md-4 col-sm-4 col-xs-auto mobile-item-col">
                     <div class="table-icon-menu pull-right">
                         <?php echo $topSearch ?>

@@ -15,6 +15,7 @@
         <css src="css/theme_default.css"/>
         <css src="css/theme.css"/>
         <css src="css/responsive.css"/>
+        <css src="css/custom.css" />
         <css src="MGS_Mpanel::css/color.css"/>
         <script src="js/bootstrap.js"/>
         <script src="js/custom.js"/>

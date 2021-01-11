@@ -1,0 +1,59 @@
+<?php /* underscorejs template for an action */ ?>
+<script id="ou-action-template" type="text/x-magento-template">
+    <li class="actions-row">
+        <div class="action-buttons-left">
+            <span class="cell body">
+                <span class="icon grip-action tooltip">
+                    <div class="tooltip-content"><?=__("Drag this action up/down")?></div>
+                </span>
+            </span>
+        </div>
+        <div class="action-content">
+            <div>
+                <span class="cell label">&nbsp;</span>
+                <span class="cell action-title hidden">
+                    <input type="text" class="atitle">
+                </span>
+                <span class="cell body icons">
+                    <span class="icon tag tooltip">
+                        <div class="tooltip-content right-tip"><?=__("Apply a label to this action")?></div>
+                    </span>
+                    <span class="icon color tooltip">
+                        <div class="tooltip-content right-tip"><?=__("Apply a color to this action")?></div>
+                    </span>
+                    <input type="text" class="acolor" style="display:none">
+                </span>
+            </div>
+            <div class="action-cell">
+                <span class="cell label"><?=__("Action type")?></span>
+                <span class="cell selection">
+                    <select class="action">
+                        <option data-options value="Ignored/ignored" >-- <?=__("Select an action")?> --</option>
+                        <% _.each(actions, function(action, index) { %>
+                        <option value="<%= index %>" ><%= action.label %></option>
+                        <% }); %>
+                    </select>
+                </span>
+                <span class="cell custom">
+                    &nbsp;
+                </span>
+            </div>
+        </div>
+        <div class="action-buttons-right">
+            &nbsp;
+            <span class="cell body icons">
+                <% if (deletable) { %>
+                    <span class="icon action-trash tooltip">
+                        <div class="tooltip-content right-tip"><?=__("Delete this action")?></div>
+                    </span>
+                <% } %>
+                <span class="icon action-add tooltip">
+                        <div class="tooltip-content right-tip"><?=__("Add a new action")?></div>
+                </span>
+            </span>
+        </div>
+    </li>
+</script>
+
+<?= $block->getChildHtml('orderupdater_profiles_edit_tab_rules_actions_options'); ?>
+<?= $block->getChildHtml('orderupdater_profiles_edit_tab_rules_actions_input'); ?>

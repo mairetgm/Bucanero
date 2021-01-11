@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!--
+ * Copyright © 2020 Wyomind. All rights reserved.
+ * See LICENSE.txt for license details.
+-->
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="admin-2columns-left"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <head>
+        <link src="Wyomind_OrdersExportTool::js/orders/grid.js"/>
+    </head>
+    <body>
+        <referenceContainer name="left">
+            <referenceBlock name="order_items">
+                <arguments>
+                    <argument name="columns" xsi:type="array">
+                        <item name="exportto" xsi:type="string" translate="true">Export To</item>
+                    </argument>
+                </arguments>
+                <referenceBlock name="default_order_items_renderer">
+                    <arguments>
+                        <argument name="columns" xsi:type="array">
+                            <item name="exportto" xsi:type="string" translate="true">col-exportto</item>
+                        </argument>
+                    </arguments>
+                </referenceBlock>
+                <block class="Wyomind\OrdersExportTool\Block\Adminhtml\Order\View\Items\Renderer\ExportTo"
+                       name="column_exportto"
+                       template="Wyomind_OrdersExportTool::orders/view/items/renderer/exportto.phtml" group="column" />
+            </referenceBlock>
+        </referenceContainer>
+    </body>
+</page>

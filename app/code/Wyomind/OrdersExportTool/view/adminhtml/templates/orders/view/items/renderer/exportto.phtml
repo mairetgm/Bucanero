@@ -1,0 +1,12 @@
+<?php $item = $block->getItem(); ?>
+<select class="admin__control-select" onchange='OrdersExportTool._updateExportTo("<?php echo $item->getId(); ?>", this.value, "<?php echo $block->getUrl('ordersexporttool/orders/update'); ?>")'>
+    <?php
+    $profiles = $block->getData('oet_profiles');
+    $helperData = $this->helper('\Wyomind\OrdersExportTool\Helper\Data');
+    ?>
+    <option value="0"><?php echo __("-- No profile --"); ?></option>
+    <?php foreach ($profiles as $profile) : ?>
+        <?php $select = ($helperData->getExportTo($item) == $profile->getId()) ? 'selected' : null; ?>
+        <option <?php echo $select; ?> value='<?php echo $profile->getId(); ?>'><?php echo $profile->getName(); ?></option>
+    <?php endforeach; ?>
+</select>

@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<eExact xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="eExact-Schema.xsd">
+<Orders>
+ <Order type="V" number="{{order.entity_id}" partialdelivery="0" confirm="0" invoicemethod="H">
+    <YourRef>Mairet Gutierrez</YourRef>
+  <Currency code="USD" />
+  <OrderedBy>
+   <Debtor code="2000000003" />
+   <Date>2020-10-14 14:46:14</Date>
+  </OrderedBy>
+  <Warehouse code="A401" />
+  <Costcenter code="" />
+<OrderLine lineNo="1">
+   <Description>Malta Bucanero, 24 latas de 335 ml, Sin Alcohol</Description>
+   <Item code="5">
+    <Description>Malta Bucanero, 24 latas de 335 ml, Sin Alcohol</Description>
+    <IsSalesItem>0.0000</IsSalesItem>
+    <IsStockItem>0.0000</IsStockItem>
+    <IsFractionAllowedItem>1</IsFractionAllowedItem>
+    <IsTextItem>1</IsTextItem>
+    <IsPurchaseItem>1</IsPurchaseItem>
+    <Assortment number="" />
+    <Availability>
+     <DateStart>2020-10-14 14:46:14</DateStart>
+    </Availability>
+    <Sales>
+     <Unit unit="caja" /></Sales>
+    <ItemCategory number="1" code="" />
+    <ItemCategory number="2" code="" />
+    <ItemAccounts>
+     <ItemAccount default="1">
+      <Account code="">
+       <Creditor code="" /></Account>
+      <ItemCode>41203050000000000000</ItemCode>
+      <Purchase>
+       <Price type="P">
+        <Currency code="USD"/>
+        <Value></Value>
+       </Price>
+       <Unit unit="caja" /></Purchase>
+     </ItemAccount>
+    </ItemAccounts>
+    <ItemWarehouses>
+     <ItemWarehouse>
+      <Warehouse code="IMPO" /></ItemWarehouse>
+    </ItemWarehouses>
+   </Item>
+   <Quantity>0.0000</Quantity>
+   <Unit unit="caja" />
+   <Price>
+    <Value>20.0000</Value>
+   </Price>
+   <Discount>
+    <Percentage>0</Percentage>
+   </Discount>
+   <Costunit code="" />
+   <Text>Malta Bucanero, 24 latas de 335 ml, Sin Alcohol</Text>
+</OrderLine>
+</Order>
+ <Order type="V" number="{{order.entity_id}" partialdelivery="0" confirm="0" invoicemethod="H">
+    <YourRef>Mairet Gutierrez</YourRef>
+  <Currency code="USD" />
+  <OrderedBy>
+   <Debtor code="2000000006" />
+   <Date>2020-10-14 16:28:02</Date>
+  </OrderedBy>
+  <Warehouse code="A401" />
+  <Costcenter code="" />
+<OrderLine lineNo="1">
+   <Description>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Description>
+   <Item code="6">
+    <Description>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Description>
+    <IsSalesItem>1.0000</IsSalesItem>
+    <IsStockItem>1.0000</IsStockItem>
+    <IsFractionAllowedItem>1</IsFractionAllowedItem>
+    <IsTextItem>1</IsTextItem>
+    <IsPurchaseItem>1</IsPurchaseItem>
+    <Assortment number="" />
+    <Availability>
+     <DateStart>2020-10-14 16:28:02</DateStart>
+    </Availability>
+    <Sales>
+     <Unit unit="caja" /></Sales>
+    <ItemCategory number="1" code="" />
+    <ItemCategory number="2" code="" />
+    <ItemAccounts>
+     <ItemAccount default="1">
+      <Account code="">
+       <Creditor code="" /></Account>
+      <ItemCode>41203050000000000000</ItemCode>
+      <Purchase>
+       <Price type="P">
+        <Currency code="USD"/>
+        <Value></Value>
+       </Price>
+       <Unit unit="caja" /></Purchase>
+     </ItemAccount>
+    </ItemAccounts>
+    <ItemWarehouses>
+     <ItemWarehouse>
+      <Warehouse code="IMPO" /></ItemWarehouse>
+    </ItemWarehouses>
+   </Item>
+   <Quantity>1.0000</Quantity>
+   <Unit unit="caja" />
+   <Price>
+    <Value>32.0000</Value>
+   </Price>
+   <Discount>
+    <Percentage>0</Percentage>
+   </Discount>
+   <Costunit code="" />
+   <Text>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Text>
+</OrderLine>
+</Order>
+ <Order type="V" number="{{order.entity_id}" partialdelivery="0" confirm="0" invoicemethod="H">
+    <YourRef>Mairet Gutierrez</YourRef>
+  <Currency code="USD" />
+  <OrderedBy>
+   <Debtor code="2000000008" />
+   <Date>2020-10-29 13:23:50</Date>
+  </OrderedBy>
+  <Warehouse code="A401" />
+  <Costcenter code="" />
+<OrderLine lineNo="1">
+   <Description>Cerveza Mayabe, 24 latas de 355ml, ALC 5.4% VOL</Description>
+   <Item code="8">
+    <Description>Cerveza Mayabe, 24 latas de 355ml, ALC 5.4% VOL</Description>
+    <IsSalesItem>1.0000</IsSalesItem>
+    <IsStockItem>1.0000</IsStockItem>
+    <IsFractionAllowedItem>1</IsFractionAllowedItem>
+    <IsTextItem>1</IsTextItem>
+    <IsPurchaseItem>1</IsPurchaseItem>
+    <Assortment number="" />
+    <Availability>
+     <DateStart>2020-10-29 13:23:50</DateStart>
+    </Availability>
+    <Sales>
+     <Unit unit="caja" /></Sales>
+    <ItemCategory number="1" code="" />
+    <ItemCategory number="2" code="" />
+    <ItemAccounts>
+     <ItemAccount default="1">
+      <Account code="">
+       <Creditor code="" /></Account>
+      <ItemCode>41203050000000000000</ItemCode>
+      <Purchase>
+       <Price type="P">
+        <Currency code="USD"/>
+        <Value></Value>
+       </Price>
+       <Unit unit="caja" /></Purchase>
+     </ItemAccount>
+    </ItemAccounts>
+    <ItemWarehouses>
+     <ItemWarehouse>
+      <Warehouse code="IMPO" /></ItemWarehouse>
+    </ItemWarehouses>
+   </Item>
+   <Quantity>1.0000</Quantity>
+   <Unit unit="caja" />
+   <Price>
+    <Value>28.0000</Value>
+   </Price>
+   <Discount>
+    <Percentage>0</Percentage>
+   </Discount>
+   <Costunit code="" />
+   <Text>Cerveza Mayabe, 24 latas de 355ml, ALC 5.4% VOL</Text>
+   <Description>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Description>
+   <Item code="9">
+    <Description>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Description>
+    <IsSalesItem>1.0000</IsSalesItem>
+    <IsStockItem>1.0000</IsStockItem>
+    <IsFractionAllowedItem>1</IsFractionAllowedItem>
+    <IsTextItem>1</IsTextItem>
+    <IsPurchaseItem>1</IsPurchaseItem>
+    <Assortment number="" />
+    <Availability>
+     <DateStart>2020-10-29 13:23:50</DateStart>
+    </Availability>
+    <Sales>
+     <Unit unit="caja" /></Sales>
+    <ItemCategory number="1" code="" />
+    <ItemCategory number="2" code="" />
+    <ItemAccounts>
+     <ItemAccount default="1">
+      <Account code="">
+       <Creditor code="" /></Account>
+      <ItemCode>41203050000000000000</ItemCode>
+      <Purchase>
+       <Price type="P">
+        <Currency code="USD"/>
+        <Value></Value>
+       </Price>
+       <Unit unit="caja" /></Purchase>
+     </ItemAccount>
+    </ItemAccounts>
+    <ItemWarehouses>
+     <ItemWarehouse>
+      <Warehouse code="IMPO" /></ItemWarehouse>
+    </ItemWarehouses>
+   </Item>
+   <Quantity>1.0000</Quantity>
+   <Unit unit="caja" />
+   <Price>
+    <Value>32.0000</Value>
+   </Price>
+   <Discount>
+    <Percentage>0</Percentage>
+   </Discount>
+   <Costunit code="" />
+   <Text>Cerveza Cristal, 24 latas de 355ml,  ALC 5.4% VOL</Text>
+</OrderLine>
+</Order>
+</Orders>
+</eExact>

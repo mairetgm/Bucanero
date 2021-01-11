@@ -73,6 +73,10 @@
                                 <?php endif ?>
                             }
                         }
+                        var d = new Date();
+                        d.setTime(d.getTime() + (24*60*60*1000*365));
+                        var expires = "expires="+d.toUTCString();
+                        document.cookie = 'newsletterpopup' + "=" + 'nevershow' + "; " + expires;
                         <?php if(!$themeHelper->getStoreConfig('mpanel/newsletter_popup/mobile')):?>}<?php endif;?>
                 });
             });

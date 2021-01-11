@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="../../../../../../lib/Magento/Framework/App/etc/routes.xsd">
+    <router id="admin">
+        <route id="orderupdater" frontName="orderupdater">
+            <module name="Wyomind_OrderUpdater" />
+        </route>
+    </router>
+</config>

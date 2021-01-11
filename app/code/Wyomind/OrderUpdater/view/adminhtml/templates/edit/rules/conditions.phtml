@@ -1,0 +1,63 @@
+<?php /* underscorejs template for a condition */ ?>
+<script id="ou-condition-template" type="text/x-magento-template">
+    <div class="conditions-row dont-sort <% if (deletable) { %>additional<% } %>">
+        <% if (deletable) { %>
+        <div class="can-toggle can-toggle--size-small">
+          <input id="op_<%= conditionId %>" type="checkbox" class="operand">
+          <label for="op_<%= conditionId %>">
+            <div class="can-toggle__switch" data-checked="and" data-unchecked="or"></div>
+          </label>
+        </div>
+        <% } %>
+        <span class="cell body space">
+            &nbsp;
+        </span>
+        <span class="cell body">
+                <select class="condition">
+                    <% _.each(conditions, function(condition, index) { %>
+                        <% if (condition.groupname) { %>
+                            <optgroup data-options label="-- <%= condition.groupname %> --">
+                        <% } %>
+                        <% _.each(condition.values, function(conditionValue, valueIndex) { %>
+                                <option value="<%= valueIndex %>"><%= conditionValue %></option>
+                        <% }); %>
+                        <% if (condition.groupname) { %>
+                            </optgroup>
+                        <% } %>
+                    <% }); %>
+                </select>
+            </span>
+        <span class="cell body">
+                <select class="condition-operand">
+                    <% _.each(conditionOperands, function(conditionOperand, index) { %>
+                    <option value="<%= index %>"><%= conditionOperand %></option>
+                    <% }); %>
+                </select>
+            </span>
+        <span class="cell body">
+                <input type="text" class="value" />
+            </span>
+        <span class="cell body">
+                <span class="icon condition-add tooltip">
+                    <div class="tooltip-content right-tip"><?=__("Add a condition to this rule")?></div>
+                </span>
+                <span class="icon condition-trash tooltip">
+                    <div class="tooltip-content right-tip"><?=__("Delete a condition from this rule")?></div>
+                </span>
+            </span>
+    </div>
+</script>
+
+
+<script id="ou-nocondition-template" type="text/x-magento-template">
+    <div class="noconditions-row dont-sort">
+            <span class="cell body space">&nbsp;
+            </span>
+        <span class="cell body nocondition">
+            <a href="#"><?php echo __('No conditions defined. Add one?'); ?></a>
+        </span>
+        <span class="cell body">
+            <span class="icon condition-add nocondition"></span>
+        </span>
+    </div>
+</script>
